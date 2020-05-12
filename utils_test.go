@@ -136,7 +136,7 @@ func Test_Utils_matchParams(t *testing.T) {
 	testCase := func(r string, cases []testparams) {
 		parser := getParams(r)
 		for _, c := range cases {
-			params, match := parser.getMatch(c.url)
+			params, match := parser.getMatch(c.url, false)
 			assertEqual(t, c.params, params, fmt.Sprintf("route: '%s', url: '%s'", r, c.url))
 			assertEqual(t, c.match, match, fmt.Sprintf("route: '%s', url: '%s'", r, c.url))
 		}
